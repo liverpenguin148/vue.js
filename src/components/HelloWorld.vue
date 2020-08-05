@@ -1,85 +1,27 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
+    <!-- v-for -->
+    <h1>v-for</h1>
+    <ul v-for="(person,index) in persons" :key="index">
+      <li>{{index + 1}}. {{ person.name }} さんは {{ person.age }}歳です。</li>
     </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <br />
+    <!-- v-on -->
+    <h1>v-on</h1>
+    <h3 id="counter">{{ counter }}</h3>
+    <button v-on:click="increment">カウントする</button>
+    <button v-on:click="decrement">ディスカウントする</button>
+    <br />
+    <!-- v-bind -->
+    <h1>v-bind</h1>
+    <div id="img">
+      <!-- v-bindは省略できる v-bind:src → :src -->
+      <img :src="img.src" alt="イメージ" :width="img.width" />
+    </div>
+    <!-- v-onは省略できる v-on:click → @click -->
+    <button @click="banana">バナナマン</button>
+    <button @click="glasses">おぎやはぎ</button>
+    <button @click="tokyo">東京03</button>
   </div>
 </template>
 
@@ -88,7 +30,39 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      persons: [
+        {
+          name: '日村',
+          age: 55
+        },
+        {
+          name: '設楽',
+          age: 39
+        }
+      ],
+      counter: 0,
+      img: {
+        src: 'https://ogre.natalie.mu/artist/6729/20190925/heiseikouhaku_01.jpg?impolicy=thumb_fit&width=640&height=640',
+        width: '300',
+        height: '300'
+      }
+    }
+  },
+  methods: {
+    increment: function () {
+      this.counter++
+    },
+    decrement: function () {
+      this.counter--
+    },
+    banana: function () {
+      this.img.src = 'https://ogre.natalie.mu/artist/6729/20190925/heiseikouhaku_01.jpg?impolicy=thumb_fit&width=640&height=640'
+    },
+    glasses: function () {
+      this.img.src = 'https://lh3.googleusercontent.com/proxy/DK-gTNOWb3Ru5qbQkqZVLatiwB0MBbfyDoXl8uofLziZFi-0hj7nqFiVxUOd-hWT2C3hyskIksNAqPxRcL6vSK4tgqiHTRV88E1PcRoMXMSn7rdHLOtEYtRICKQ'
+    },
+    tokyo: function () {
+      this.img.src = 'https://lh3.googleusercontent.com/proxy/cLwrEHMpC8wu6r-MgUDtDptOWrzS65mh4SMF-feMy2D6Z9eRdoZai9-ri7vYMhY1OIepE3NE6a9BD-b6yiAW139c6QZL1CJPQCco16CEZYRSeyFmRdU'
     }
   }
 }
@@ -96,7 +70,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {
@@ -109,5 +84,9 @@ li {
 }
 a {
   color: #42b983;
+}
+
+#counter {
+  margin-left: 10px;
 }
 </style>
