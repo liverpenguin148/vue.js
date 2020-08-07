@@ -1,9 +1,10 @@
 // アプリケーションのルートコンポーネント
 <template>
   <div id="app">
+    <!-- ルートとマッチしたコンポーネントが描画される -->
     <router-link to="/">Home</router-link>
     <router-link to="/test">Test</router-link>
-    <!-- ルートとマッチしたコンポーネントが描画される -->
+    <router-link to="/janken">じゃんけん</router-link>
     <router-view />
   </div>
 </template>

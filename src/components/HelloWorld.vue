@@ -59,10 +59,10 @@ export default {
       this.img.src = 'https://ogre.natalie.mu/artist/6729/20190925/heiseikouhaku_01.jpg?impolicy=thumb_fit&width=640&height=640'
     },
     glasses: function () {
-      this.img.src = 'https://lh3.googleusercontent.com/proxy/DK-gTNOWb3Ru5qbQkqZVLatiwB0MBbfyDoXl8uofLziZFi-0hj7nqFiVxUOd-hWT2C3hyskIksNAqPxRcL6vSK4tgqiHTRV88E1PcRoMXMSn7rdHLOtEYtRICKQ'
+      this.img.src = 'http://www.p-jinriki.com/talent/img/profile/pic_ogiyahagi_mypage.jpg'
     },
     tokyo: function () {
-      this.img.src = 'https://lh3.googleusercontent.com/proxy/cLwrEHMpC8wu6r-MgUDtDptOWrzS65mh4SMF-feMy2D6Z9eRdoZai9-ri7vYMhY1OIepE3NE6a9BD-b6yiAW139c6QZL1CJPQCco16CEZYRSeyFmRdU'
+      this.img.src = 'http://www.p-jinriki.com/talent/img/profile/tokyo03_mypage.jpg'
     }
   }
 }
